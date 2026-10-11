@@ -1,0 +1,6 @@
+jax
+flax
+optax
+numpy
+mujoco
+mujoco-mjx
