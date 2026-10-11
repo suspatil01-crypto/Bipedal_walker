@@ -15,8 +15,8 @@ A 3D box-shaped biped learns to walk forward from scratch using **Proximal Polic
 |------|-------------|
 | `main.ipynb` | Training notebook: environment, reward, network, PPO loop, checkpointing |
 | `bipedal.xml` | MuJoCo model of the biped (torso, 2 legs, 8 motors) |
-| `render2.py` | Loads a checkpoint and renders the policy in the interactive MuJoCo viewer |
-| `biped_checkpoint (12).pkl` | Trained weights (params + optimizer state + iteration) |
+| `render.py` | Loads a checkpoint and renders the policy in the interactive MuJoCo viewer |
+| `biped_checkpoint.pkl` | Trained weights (params + optimizer state + iteration) |
 
 ## The Robot
 
@@ -73,19 +73,19 @@ For GPU training, install the CUDA build of JAX following the [JAX installation 
 
 ### 2. Watch the trained walker
 
-`render2.py` expects the checkpoint named `biped_checkpoint (12).pkl` in the same folder as `bipedal.xml`. If your file was renamed (e.g. `biped_checkpoint__12_.pkl`), either rename it back or update the path in `render2.py`.
+`render.py` expects `biped_checkpoint.pkl` and `bipedal.xml` in the same folder as the script. If you rename the checkpoint, update the path inside `render.py` to match.
 
 ```bash
-python render2.py
+python render.py
 ```
 
 An interactive MuJoCo window opens with a camera that follows the robot. During playback the policy uses the **deterministic mean action** (no exploration noise).
 
-> On macOS, the passive viewer may require running with `mjpython render2.py`.
+> On macOS, the passive viewer may require running with `mjpython render.py`.
 
 ### 3. Train your own
 
-Open `main.ipynb` and run the cells top to bottom. Training periodically saves checkpoints as a pickle containing `params`, `opt_state`, and `iteration`, which `render2.py` can load directly.
+Open `main.ipynb` and run the cells top to bottom. Training periodically saves checkpoints as a pickle containing `params`, `opt_state`, and `iteration`, which `render.py` can load directly.
 
 ## Tech Stack
 
