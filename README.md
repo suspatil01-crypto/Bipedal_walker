@@ -97,7 +97,3 @@ Python · JAX · Flax · Optax · MuJoCo / MJX · NumPy
 - Add a target-velocity command or turning
 - Train on uneven terrain or with domain randomization
 - Export training curves and a demo GIF/video for this README
-
-## License
-
-Add a license of your choice (e.g. MIT) before publishing.
